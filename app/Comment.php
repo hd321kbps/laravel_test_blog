@@ -8,11 +8,11 @@ class Comment extends Model
 {
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(Post::class);
     }
     public function author()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function allow()
     {
@@ -24,13 +24,13 @@ class Comment extends Model
         $this->status=0;
         $this->save();
     }
-    public function toggleAdmin()
+    public function toggleStatus()
     {
-        if($this->status = 0)
+        if($this->status == 0)
         {
             return $this->allow();
         }
-        return $this-disAllow();
+        return $this->disAllow();
     }
     public function remove()
     {
