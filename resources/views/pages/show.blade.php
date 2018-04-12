@@ -5,9 +5,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-            @if(session('status'))
-                <div class="alert alert-success">{{session('status')}}</div>
-            @endif
                 <article class="post">
                     <div class="post-thumb">
                         <a href="{{route('post.show', $post->slug)}}"><img src="{{$post->getImage()}}" alt=""></a>
@@ -112,7 +109,7 @@
                     {{-- <h4>Комментарии:</h4> --}}
 
                     <div class="comment-img">
-                        <img class="img-circle" src="{{$comment->author->getAvatar()}}" alt="" width="75">
+                        <img class="img-circle" src="{{$comment->author->getAvatar()}}" alt="">
                     </div>
 
                     <div class="comment-text">
